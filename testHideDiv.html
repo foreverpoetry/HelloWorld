@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.rotate.min.js"></script>
+		<script>
+			$(function() {
+				var isMoved = false;
+				$("img").click(function() {
+					if(isMoved) {
+						isMoved = false;
+						$("#hideDiv").css({
+							"height": "100px"
+						});
+						//						$(".img").animate({
+						//							"top": "-200px"
+						//						}); //这是下半部分隐藏，具体的根据自己的需求修改
+					} else {
+						isMoved = true;
+						$("#hideDiv").css({
+							"height": "200px"
+						});
+						//						$(".img").animate({
+						//							"top": "100px"
+						//						});
+					}
+
+				});
+				var value2 = 0;
+				$('img').rotate({
+					bind: {
+						click: function() {
+							value2 += 180;
+							$(this).rotate({
+								animateTo: value2
+							});
+						}
+					}
+				});
+
+			})
+		</script>
+	</head>
+
+	<body>
+		<div id="hideDiv" style="height:100px; overflow:hidden; position:relative;background-color: red;">
+			<div class="img" style="position:absolute;background-color: grey;">
+				<p>想要隐藏一半的标签</p>
+				<p>不过最近池州的温度</p>
+				<p> 火辣辣的太阳</p>
+				<p> 着实让大家感觉到了一些盛夏的味道 </p>
+				<p>天天都是30多度的高温 </p>
+				<p>刚刚六月份，</p>
+				<p>原来那个白皙的我</p>
+				<p> 早已不知所踪</p>
+			</div>
+
+		</div>
+		<img src="img/btn.png" style="display: inline-block;position: relative;top: -15px;width:30px;">
+		<button id="btn">submit</button>
+	</body>
+
+</html>
